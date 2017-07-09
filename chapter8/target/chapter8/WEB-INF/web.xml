@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" version="2.5"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+    <servlet>
+        <servlet-name>testJspBean1</servlet-name>
+        <servlet-class>com.wll.test.hfjsp.chapter8.controller.TestJspBean1Servlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>testJspBean1</servlet-name>
+        <url-pattern>/testJspBean1.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>testEl1</servlet-name>
+        <servlet-class>com.wll.test.hfjsp.chapter8.controller.TestEL1Servlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>testEl1</servlet-name>
+        <url-pattern>/testEl1.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>testEl2</servlet-name>
+        <servlet-class>com.wll.test.hfjsp.chapter8.controller.TestEL2Servlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>testEl2</servlet-name>
+        <url-pattern>/testEl2.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>testEl4</servlet-name>
+        <servlet-class>com.wll.test.hfjsp.chapter8.controller.TestEL4Servlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>testEl4</servlet-name>
+        <url-pattern>/testEl4.do</url-pattern>
+    </servlet-mapping>
+
+</web-app>

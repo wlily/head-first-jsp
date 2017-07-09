@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
+        version="2.1">
+
+    <tlib-version>1.0</tlib-version>
+    <short-name>mytest</short-name>
+    <uri>mytest</uri>
+
+    <tag>
+        <name>test1</name>
+        <tag-class>com.wll.test.hfjsp.chapter9.util.Test1TagHandler</tag-class>
+        <body-content>empty</body-content>
+
+        <!--tagdependent body means the body is treated as plain text,
+        so the EL is not evaluated and tags/actions are not triggered.
+        -->
+        <!--<body-content>tagdependent</body-content>-->
+
+        <attribute>
+            <name>user</name>
+            <required>true</required>
+            <!--rtexpvalue is false, only a string literal can used as attribute value-->
+            <!--rtexpvalue is true, expression can used as attribute value-->
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>dept</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>test2</name>
+        <tag-class>com.wll.test.hfjsp.chapter9.util.Test2TagHandler</tag-class>
+        <!--JSp body means the tag body can have anything that can go inside a JSP-->
+        <body-content>JSP</body-content>
+        <attribute>
+            <name>param1</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>test3</name>
+        <tag-class>com.wll.test.hfjsp.chapter9.util.Test3TagHandler</tag-class>
+        <!--tagdependent body means the body is treated as plain text,
+        so the EL is not evaluated and tags/actions are not triggered.
+        -->
+        <body-content>tagdependent</body-content>
+        <attribute>
+            <name>param1</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>test4</name>
+        <tag-class>com.wll.test.hfjsp.chapter9.util.Test4TagHandler</tag-class>
+        <!--scriptless body means the tag must not have scripting elements
+        (scriptlets, scripting expressions, and declarations), but it can have template text
+        and EL and custom and standard actions
+         -->
+        <body-content>scriptless</body-content>
+
+        <attribute>
+            <name>param1</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <function>
+        <name>rollIt</name>
+        <function-class>com.wll.test.hfjsp.chapter9.model.DiceRoller</function-class>
+        <function-signature>int rollDice()</function-signature>
+    </function>
+
+</taglib>

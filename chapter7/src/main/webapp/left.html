@@ -1,0 +1,77 @@
+<ul>
+    <li><b>JSP Elements and Where in translated Servlet</b>
+        <ul>
+            <li>JSP scriptlet
+                <ul>
+                    <li>&lt;% java code %&gt;</li>
+                    <li>scriptlets are copyed to _jspservice() method</li>
+                </ul>
+            </li>
+            <li>JSP declaration
+                <ul>
+                    <li>&lt;%! java code %&gt;</li>
+                    <li>declaration becomes the instance variable and method</li>
+                </ul>
+            </li>
+            <li>Java expression
+                <ul>
+                    <li>&lt;%= java code %&gt;</li>
+                    <li>expression becomes the input of out.print()</li>
+                </ul>
+            </li>
+            <li>JSP directive
+                <ul>
+                    <li>&lt;%@page attributeName=attributeValue%&gt;
+                        <ul>import</ul>
+                        <ul>session</ul>
+                        <ul>contentType</ul>
+                        <ul>isELIgnored</ul>
+                    </li>
+                    <li>&lt;%@include %&gt;</li>
+                    <li>&lt;%@taglib %&gt;</li>
+                    <li>directive gives special instructions to the Container at page translation time</li>
+                </ul>
+            </li>
+            <li>JSP actions
+            <ul>
+                <li>standard action eg: &lt;jsp:include page="ss.jsp"/&gt;</li>
+                <li>non-standard action eg: &lt;c:set var="rate" value="32" /&gt;</li>
+            </ul>
+            </li>
+            <li>JSP Expression Language(EL)
+            <ul>
+                <li>${something}</li>
+                <li>offer a simpler way to invoke java code</li>
+            </ul>
+            </li>
+        </ul>
+    </li>
+    <li><b>JSP Page LifeCycle</b>
+        <ul>
+            <li>For only the first request
+                <ul>
+                    <li>JSP page translation to java</li>
+                    <li>JSP page compilation to class</li>
+                    <li>load class</li>
+                    <li>create instance</li>
+                    <li>call jspInit()</li>
+                </ul>
+            </li>
+            <li>call _jspService()</li>
+            <li>call jspDestroy()</li>
+        </ul>
+    </li>
+    <li><b>JSP Implicit Objects</b>
+        <ul>
+            <li>request------HttpServletRequest</li>
+            <li>response-----HttpServletResponse</li>
+            <li>out----------JspWriter</li>
+            <li>session------HttpSession</li>
+            <li>config-------ServletConfig</li>
+            <li>application--ServletContext</li>
+            <li>pageContext--PageContext</li>
+            <li>page---------Page</li>
+            <li>exception----JspException</li>
+        </ul>
+    </li>
+</ul>

@@ -1,0 +1,122 @@
+<ul>
+    <li><b>How to keep track of multiRequests from same client</b>
+        <ul>
+            <li>Stateful EJB</li>
+            <li>DB</li>
+            <li>HttpSession object</li>
+        </ul>
+
+    <li><b>How container know who the client is?</b>
+        <ul>
+            <li>On the client's first request, the Container generates a unique session ID and gives it back to the
+                client with the response.
+            </li>
+            <li>The client sends back the session ID with each subsequent request.</li>
+            <li>The Container sees the ID, finds the matching session, and associates the session with the request.</li>
+        </ul>
+    </li>
+
+    <li><b>How client and container exchange sessionID?</b>
+        <ul>
+            <li>Cookies
+                <ul>
+                    <li>Set-Cookie:JSESSIONID=xxxxx in response</li>
+                    <li>Cookie:JSEESIONID=xxxx in request</li>
+                </ul>
+            <li>Url Rewrite
+                <ul>
+                    <li>url;jsessionid=xxxx in request</li>
+                    <li>url;jsessionid=xxxx in response</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+
+    <li><b>How to to exchange sessionID by cookies?</b>
+        <ul>
+            <li>request.getSession()
+                <ul>
+                    <li>If request has no sessionID or container finds no matching sessionID,
+                        <br>container creates new session<b><em>(using cookie)</em></b> and responses session ID to
+                        client.
+                    </li>
+                    <li>Else, find the session matching that ID.</li>
+                </ul>
+            </li>
+            <li>request.getSession(false)
+                <ul>
+                    <li>returns null instead of creating new one when no session found.</li>
+                </ul>
+            </li>
+            <li>session.isNew()
+                <ul>
+                    <li>
+                        return whether the session already existed or was just created.
+                    </li>
+                </ul>
+            </li>
+            <li>A client with cookies disabled will ignore "Set-Cookies" response headers.</li>
+        </ul>
+    </li>
+
+    <li><b>How to exchange sessionID by URL rewriting ?</b>
+        <ul>
+            <li>URL rewriting kicks in ONLY if cookies fail, and ONLY if you tell the response to encode the URL
+                <ul>
+                    <li>response.encodeURL(url)</li>
+                    <li>response.encodeRedirectURL(url)</li>
+                    <li>&lt;c:url&gt;</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+
+    <li><b>How to make session die</b>
+        <ul>
+            <li>timeout
+                <ul>
+                    <li>DD: &lt;session-config&gt;&lt;session-timeout&gt;</li>
+                </ul>
+                <ul>
+                    <li>session.setMaxInactiveInterval()</li>
+                </ul>
+            </li>
+            <li>session.invalidate()</li>
+            <li>The application goes down(crashes or undeployed)</li>
+        </ul>
+    </li>
+
+    <li><b>Besides sessionID, cookies can be used to exchange other name/value String pairs</b>
+    <ul>
+        <li>new Cookie(String,String)</li>
+        <li>cookie.setMaxAge()</li>
+        <li>response.addCookie()</li>
+        <li>request.getCookies()</li>
+    </ul>
+    </li>
+
+    <li><b>Session Migration</b>
+    <ul>
+        <li>Container might do load-balancing by taking client request and sending them out to JVMs</li>
+        <li>one ServletContext per VM</li>
+        <li>one ServletConfig per servlet, per VM</li>
+        <li>one HttpSession object for a given session ID per web app,
+            <br>regardless of how many VM's the app is distributed across.</li>
+        <li>Only HttpSession objects(and their attributes) move from one VM to another.</li>
+        </ul>
+    </li>
+
+    <li><b>HttpSession API</b>
+        <ul>
+            <li>setAttribute()</li>
+            <li>getAttribute()</li>
+            <li>removeAttribute()</li>
+            <li>isNew()</li>
+            <li>getCreationTime()</li>
+            <li>getLastAccessedTime()</li>
+            <li>setMaxInactiveInterval()</li>
+            <li>getMaxInactiveInterval()</li>
+            <li>invalid()</li>
+        </ul>
+    </li>
+</ul>

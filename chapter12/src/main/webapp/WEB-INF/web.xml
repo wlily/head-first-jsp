@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" version="2.5"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+    <servlet>
+        <servlet-name>test3</servlet-name>
+        <servlet-class>com.wll.test.hfjsp.chapter12.controller.TestSevlet3</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>test3</servlet-name>
+        <url-pattern>*.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>test1</servlet-name>
+        <servlet-class>com.wll.test.hfjsp.chapter12.controller.TestSevlet1</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>test1</servlet-name>
+        <url-pattern>/test/test1</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>test2</servlet-name>
+        <servlet-class>com.wll.test.hfjsp.chapter12.controller.TestSevlet2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>test2</servlet-name>
+        <url-pattern>/test/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>test4</servlet-name>
+        <servlet-class>com.wll.test.hfjsp.chapter12.controller.TestSevlet4</servlet-class>
+        <security-role-ref>
+            <role-name>Manager</role-name>
+            <role-link>myadmin</role-link>
+        </security-role-ref>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>test4</servlet-name>
+        <url-pattern>/test/test4.do</url-pattern>
+    </servlet-mapping>
+
+    <security-role>
+        <role-name>myadmin</role-name>
+    </security-role>
+    <security-role>
+        <role-name>mymember</role-name>
+    </security-role>
+    <!--<security-role>-->
+        <!--<role-name>Guest</role-name>-->
+    <!--</security-role>-->
+
+    <login-config>
+        <auth-method>BASIC</auth-method>
+        <!--<auth-method>DIGEST</auth-method>-->
+        <!--<auth-method>CLIENT-CERT</auth-method>-->
+        <!--<auth-method>FORM</auth-method>-->
+        <form-login-config>
+            <form-login-page>/loginPage.html</form-login-page>
+            <form-error-page>/loginError.html</form-error-page>
+        </form-login-config>
+    </login-config>
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>test</web-resource-name>
+            <url-pattern>/test/test1</url-pattern>
+            <url-pattern>/test/*</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>myadmin</role-name>
+            <role-name>mymember</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+
+    <servlet>
+        <servlet-name>test5</servlet-name>
+        <servlet-class>com.wll.test.hfjsp.chapter12.controller.TestSevlet4</servlet-class>
+        <security-role-ref>
+            <role-name>Manager</role-name>
+            <role-link>myadmin</role-link>
+        </security-role-ref>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>test5</servlet-name>
+        <url-pattern>/test/test5.do</url-pattern>
+    </servlet-mapping>
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>test</web-resource-name>
+            <url-pattern>/test/test5.do</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>myadmin</role-name>
+            <role-name>mymember</role-name>
+        </auth-constraint>
+        <user-data-constraint>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+</web-app>

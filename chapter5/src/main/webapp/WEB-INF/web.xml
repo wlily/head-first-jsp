@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" version="2.5"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+    <context-param>
+        <param-name>dbName</param-name>
+        <param-value>mysql</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>breed</param-name>
+        <param-value>Great Dane</param-value>
+    </context-param>
+
+    <servlet>
+        <servlet-name>printAddress</servlet-name>
+        <servlet-class>com.wll.test.hfjsp.chapter5.controller.PrintAddress</servlet-class>
+        <init-param>
+            <param-name>myEmail</param-name>
+            <param-value>servletConfig@126.com</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>printAddress</servlet-name>
+        <url-pattern>/printAddress.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>listenerTest</servlet-name>
+        <servlet-class>com.wll.test.hfjsp.chapter5.controller.ListenerTestServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>listenerTest</servlet-name>
+        <url-pattern>/listenerTest.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>dispatchTest</servlet-name>
+        <servlet-class>com.wll.test.hfjsp.chapter5.controller.RequestDispatchServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>dispatchTest</servlet-name>
+        <url-pattern>/dispatchTest.do</url-pattern>
+    </servlet-mapping>
+
+    <listener>
+        <listener-class>com.wll.test.hfjsp.chapter5.listener.MyServletContextListener</listener-class>
+    </listener>
+
+</web-app>

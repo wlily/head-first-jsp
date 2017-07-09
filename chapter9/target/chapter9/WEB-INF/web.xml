@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" version="2.5"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+    <servlet>
+        <servlet-name>testForEach</servlet-name>
+        <servlet-class>com.wll.test.hfjsp.chapter9.controller.TestIteratorServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>testForEach</servlet-name>
+        <url-pattern>/testForEach.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>testIf</servlet-name>
+        <servlet-class>com.wll.test.hfjsp.chapter9.controller.TestIfServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>testIf</servlet-name>
+        <url-pattern>/testIf.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>testSet</servlet-name>
+        <servlet-class>com.wll.test.hfjsp.chapter9.controller.TestSetServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>testSet</servlet-name>
+        <url-pattern>/testSet.do</url-pattern>
+    </servlet-mapping>
+
+    <error-page>
+        <exception-type>java.lang.Throwable</exception-type>
+        <location>/images/bummerGug.png</location>
+    </error-page>
+    <error-page>
+        <exception-type>java.lang.ArithmeticException</exception-type>
+        <location>/arithmeticError.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/notFoundError.jsp</location>
+    </error-page>
+</web-app>

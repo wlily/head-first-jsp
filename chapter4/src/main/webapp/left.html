@@ -1,0 +1,49 @@
+<ul>
+    <li><b>Servlet Life Period</b>
+        <ul>
+            <li>load servlet class</li>
+            <li>initialize instance(no-arg constructor, only one instance)</li>
+            <li>init() called only once</li>
+            <li>service() handled in separate thread</li>
+            <li>destroy()</li>
+        </ul>
+    </li>
+    <li><b>HttpServletRequest</b>
+        <ul>
+            <li>getParameter</li>
+            <li>getParameterValues</li>
+            <li>getHeader</li>
+            <li>getCookies</li>
+            <li>getMethod</li>
+            <li>getInputStream</li>
+            <li>getAttribute</li>
+        </ul>
+    </li>
+    <li><b>HttpServletResponse</b>
+        <ul>
+            <li>setContentType</li>
+            <li>getOutputStream</li>
+            <li>getWriter</li>
+            <li>addCookie</li>
+            <li>addHeader</li>
+            <li>encodeURL</li>
+            <li>sendError</li>
+            <li>setStatus</li>
+            <li>sendRedirect</li>
+        </ul>
+    </li>
+    <li><b>Redirect vs Dispatch</b>
+        <ul>
+            <li>Redirect request to a completely different url,response 301 and location header.<br>
+                Browser do the work.</li>
+            <li>Dispatch request to other component in your web app(typically a JSP). <br>
+                Server Side do the work.</li>
+        </ul>
+    </li>
+    <!--<li><b>ServletConfig vs ServletContext</b>-->
+    <!--<ul>-->
+    <!--<li>One servlet one ServletConfig</li>-->
+    <!--<li>One web app one ServletContext</li>-->
+    <!--</ul>-->
+    <!--</li>-->
+</ul>

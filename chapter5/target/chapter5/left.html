@@ -1,0 +1,85 @@
+<ul>
+    <li><b>ServletConfig vs ServletContext</b>
+        <ul>
+            <li>One servlet one ServletConfig
+                <ul>
+                    <li>getInitParameter</li>
+                    <li>getServletContext</li>
+                </ul>
+            </li>
+            <li>One web app one ServletContext
+                <ul>
+                    <li>getInitParameter</li>
+                    <li>getAttribute</li>
+                    <li>setAttribute</li>
+                    <li>removeAttribute</li>
+                    <li>getRequestDispatcher</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li><b>Listener</b>
+        <ul>
+            <li>ServletContextListner
+                <ul>
+                    <li>Get notified when the context is initialized(app deployed)</li>
+                    <li>Get notified when the context is destroyed(app undeployed or goes down)</li>
+                </ul>
+            </li>
+            <li>ServletContextAttributeListener</li>
+            <li>ServletRequestListener</li>
+            <li>ServletRequestAttributeListener</li>
+            <li>HttpSessionListener</li>
+            <li>HttpSessionBindingListener</li>
+            <li>HttpSessionAttributeListener</li>
+            <li>HttpSessionActivationListener</li>
+        </ul>
+    </li>
+
+    <li><b>Attributes vs Parameters</b>
+        <ul>
+            <li>Attributes
+                <ul>
+                    <li>Types:Application/context, Request, Session</li>
+                    <li>Set Method:setAttribute(String,Object)</li>
+                    <li>Return Type:Object</li>
+                    <li>Get Method:getAttribute(String)</li>
+                </ul>
+            </li>
+            <li>Parameters
+                <ul>
+                    <li>Types:Application/context init parameters, Request parameters, Servlet init parameters </li>
+                    <li>Set Method:No</li>
+                    <li>Return Type:String</li>
+                    <li>Get Method:getInitParameter(String),getParameter(String)
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li><b>Thread Safe Issues</b>
+        <ul>
+            <li>Unsafe
+                <ul>
+                    <li>ServletContext Attributes</li>
+                    <li>Session Attributes</li>
+                    <li>Servlet Instance Variable</li>
+                </ul>
+            </li>
+            <li>Safe
+                <ul>
+                    <li>Request Attributes</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li><b>Dispatch Issues</b>
+        <ul>
+            <li>Request attributes make sense when you want some other component of the app to
+                take over all or part of the request. eg. MVC.</li>
+            <li>RequestDispatcher can make another part of the component take over the request.</li>
+            <li>Get a RequestDispatcher from a ServletRequest or a ServletContext.</li>
+            <li>Calling forward() on RequestDispatcher.</li>
+        </ul>
+    </li>
+</ul>

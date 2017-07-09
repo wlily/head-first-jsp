@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
+        version="2.1">
+
+    <tlib-version>1.0</tlib-version>
+    <short-name>mytest</short-name>
+    <uri>mytest</uri>
+
+    <tag>
+        <name>test1</name>
+        <tag-class>com.wll.test.hfjsp.chapter10.util.TestSimpleTagHandler1</tag-class>
+        <body-content>scriptless</body-content>
+
+        <attribute>
+            <name>user</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>dept</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    <tag>
+        <name>test2</name>
+        <tag-class>com.wll.test.hfjsp.chapter10.util.TestSimpleTagHandler2</tag-class>
+        <body-content>scriptless</body-content>
+
+        <attribute>
+            <name>user</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>dept</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    <tag>
+        <description>ludicrous use of a classic tag</description>
+        <name>classic1</name>
+        <tag-class>com.wll.test.hfjsp.chapter10.util.TestClassicTagHandler1</tag-class>
+        <body-content>scriptless</body-content>
+    </tag>
+    <tag>
+        <description>ludicrous use of a classic tag</description>
+        <name>classic2</name>
+        <tag-class>com.wll.test.hfjsp.chapter10.util.TestClassicTagHandler2</tag-class>
+        <body-content>scriptless</body-content>
+    </tag>
+
+    <tag>
+        <description>ClassicMenu tag</description>
+        <name>ClassicMenu</name>
+        <tag-class>com.wll.test.hfjsp.chapter10.util.MenuClassicTag</tag-class>
+        <body-content>scriptless</body-content>
+    </tag>
+
+    <tag>
+        <description>ClassicMenuItem tag</description>
+        <name>ClassicMenuItem</name>
+        <tag-class>com.wll.test.hfjsp.chapter10.util.MenuItemClassicTag</tag-class>
+        <body-content>scriptless</body-content>
+
+        <attribute>
+            <name>itemValue</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <description>SimpleMenu tag</description>
+        <name>SimpleMenu</name>
+        <tag-class>com.wll.test.hfjsp.chapter10.util.MenuSimpleTag</tag-class>
+        <body-content>scriptless</body-content>
+    </tag>
+
+    <tag>
+        <description>SimpleMenuItem tag</description>
+        <name>SimpleMenuItem</name>
+        <tag-class>com.wll.test.hfjsp.chapter10.util.MenuItemSimpleTag</tag-class>
+        <body-content>scriptless</body-content>
+
+        <attribute>
+            <name>itemValue</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+</taglib>
